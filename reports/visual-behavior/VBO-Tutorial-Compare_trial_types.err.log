@@ -1,0 +1,108 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# If you are working with data in the cloud in Code Ocean, 
+# or if you have already downloaded the full dataset to your local machine, 
+# you can instantiate a local cache
+# cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)
+
+# If you are working with the data locally for the first time, you need to instantiate the cache from S3:
+cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)
+#cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=cache_dir)
+          
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mRuntimeError[0m                              Traceback (most recent call last)
+Cell [0;32mIn[5], line 7[0m
+[1;32m      1[0m [38;5;66;03m# If you are working with data in the cloud in Code Ocean, [39;00m
+[1;32m      2[0m [38;5;66;03m# or if you have already downloaded the full dataset to your local machine, [39;00m
+[1;32m      3[0m [38;5;66;03m# you can instantiate a local cache[39;00m
+[1;32m      4[0m [38;5;66;03m# cache = VisualBehaviorOphysProjectCache.from_local_cache(cache_dir=cache_dir, use_static_cache=True)[39;00m
+[1;32m      5[0m 
+[1;32m      6[0m [38;5;66;03m# If you are working with the data locally for the first time, you need to instantiate the cache from S3:[39;00m
+[0;32m----> 7[0m cache [38;5;241m=[39m [43mVisualBehaviorOphysProjectCache[49m[38;5;241;43m.[39;49m[43mfrom_local_cache[49m[43m([49m[43mcache_dir[49m[38;5;241;43m=[39;49m[43mcache_dir[49m[43m,[49m[43m [49m[43muse_static_cache[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
+[1;32m      8[0m [38;5;66;03m#cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=cache_dir)[39;00m
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_cache_base.py:110[0m, in [0;36mProjectCacheBase.from_local_cache[0;34m(cls, cache_dir, use_static_cache)[0m
+[1;32m     87[0m [38;5;129m@classmethod[39m
+[1;32m     88[0m [38;5;28;01mdef[39;00m [38;5;21mfrom_local_cache[39m(
+[1;32m     89[0m     [38;5;28mcls[39m,
+[1;32m     90[0m     cache_dir: Union[[38;5;28mstr[39m, Path],
+[1;32m     91[0m     use_static_cache: [38;5;28mbool[39m [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+[1;32m     92[0m ) [38;5;241m-[39m[38;5;241m>[39m [38;5;124m"[39m[38;5;124mProjectCacheBase[39m[38;5;124m"[39m:
+[1;32m     93[0m [38;5;250m    [39m[38;5;124;03m"""instantiates this object with a local cache.[39;00m
+[1;32m     94[0m 
+[1;32m     95[0m [38;5;124;03m    Parameters[39;00m
+[0;32m   (...)[0m
+[1;32m    108[0m 
+[1;32m    109[0m [38;5;124;03m    """[39;00m
+[0;32m--> 110[0m     fetch_api [38;5;241m=[39m [38;5;28;43mcls[39;49m[38;5;241;43m.[39;49m[43mcloud_api_class[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mfrom_local_cache[49m[43m([49m
+[1;32m    111[0m [43m        [49m[43mcache_dir[49m[43m,[49m
+[1;32m    112[0m [43m        [49m[43mproject_name[49m[38;5;241;43m=[39;49m[38;5;28;43mcls[39;49m[38;5;241;43m.[39;49m[43mPROJECT_NAME[49m[43m,[49m
+[1;32m    113[0m [43m        [49m[43mui_class_name[49m[38;5;241;43m=[39;49m[38;5;28;43mcls[39;49m[38;5;241;43m.[39;49m[38;5;18;43m__name__[39;49m[43m,[49m
+[1;32m    114[0m [43m        [49m[43muse_static_cache[49m[38;5;241;43m=[39;49m[43muse_static_cache[49m
+[1;32m    115[0m [43m    [49m[43m)[49m
+[1;32m    116[0m     [38;5;28;01mreturn[39;00m [38;5;28mcls[39m(fetch_api[38;5;241m=[39mfetch_api)
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_apis/data_io/project_cloud_api_base.py:143[0m, in [0;36mProjectCloudApiBase.from_local_cache[0;34m(cls, cache_dir, project_name, ui_class_name, use_static_cache)[0m
+[1;32m    122[0m [38;5;250m[39m[38;5;124;03m"""instantiates this object with a local cache.[39;00m
+[1;32m    123[0m 
+[1;32m    124[0m [38;5;124;03mParameters[39;00m
+[0;32m   (...)[0m
+[1;32m    140[0m 
+[1;32m    141[0m [38;5;124;03m"""[39;00m
+[1;32m    142[0m [38;5;28;01mif[39;00m use_static_cache:
+[0;32m--> 143[0m     cache [38;5;241m=[39m [43mStaticLocalCache[49m[43m([49m
+[1;32m    144[0m [43m        [49m[43mcache_dir[49m[43m,[49m
+[1;32m    145[0m [43m        [49m[43mproject_name[49m[43m,[49m
+[1;32m    146[0m [43m        [49m[43mui_class_name[49m[38;5;241;43m=[39;49m[43mui_class_name[49m
+[1;32m    147[0m [43m    [49m[43m)[49m
+[1;32m    148[0m [38;5;28;01melse[39;00m:
+[1;32m    149[0m     cache [38;5;241m=[39m LocalCache(
+[1;32m    150[0m         cache_dir,
+[1;32m    151[0m         project_name,
+[1;32m    152[0m         ui_class_name[38;5;241m=[39mui_class_name
+[1;32m    153[0m     )
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:1245[0m, in [0;36mStaticLocalCache.__init__[0;34m(self, cache_dir, project_name, ui_class_name)[0m
+[1;32m   1244[0m [38;5;28;01mdef[39;00m [38;5;21m__init__[39m([38;5;28mself[39m, cache_dir, project_name, ui_class_name[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[0;32m-> 1245[0m     [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mcache_dir[49m[38;5;241;43m=[39;49m[43mcache_dir[49m[43m,[49m[43m [49m[43mproject_name[49m[38;5;241;43m=[39;49m[43mproject_name[49m[43m,[49m
+[1;32m   1246[0m [43m                     [49m[43mui_class_name[49m[38;5;241;43m=[39;49m[43mui_class_name[49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:78[0m, in [0;36mBasicLocalCache.__init__[0;34m(self, cache_dir, project_name, ui_class_name)[0m
+[1;32m     75[0m [38;5;28mself[39m[38;5;241m.[39m_cache_dir [38;5;241m=[39m cache_dir
+[1;32m     76[0m [38;5;28mself[39m[38;5;241m.[39m_project_name [38;5;241m=[39m project_name
+[0;32m---> 78[0m [38;5;28mself[39m[38;5;241m.[39m_manifest_file_names [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_list_all_manifests[49m[43m([49m[43m)[49m
+
+File [0;32m/opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:1258[0m, in [0;36mStaticLocalCache._list_all_manifests[0;34m(self)[0m
+[1;32m   1254[0m manifest_dir [38;5;241m=[39m os[38;5;241m.[39mpath[38;5;241m.[39mjoin(
+[1;32m   1255[0m     [38;5;28mself[39m[38;5;241m.[39m_cache_dir, [38;5;28mself[39m[38;5;241m.[39mproject_name, [38;5;124m"[39m[38;5;124mmanifests[39m[38;5;124m"[39m
+[1;32m   1256[0m )
+[1;32m   1257[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os[38;5;241m.[39mpath[38;5;241m.[39mexists(manifest_dir):
+[0;32m-> 1258[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(
+[1;32m   1259[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mExpected the provided cache_dir ([39m[38;5;132;01m{[39;00m[38;5;28mself[39m[38;5;241m.[39m_cache_dir[38;5;132;01m}[39;00m[38;5;124m)[39m[38;5;124m"[39m
+[1;32m   1260[0m         [38;5;124m"[39m[38;5;124mto have the following subfolders but it did not: [39m[38;5;124m"[39m
+[1;32m   1261[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00m[38;5;28mself[39m[38;5;241m.[39mproject_name[38;5;132;01m}[39;00m[38;5;124m/manifests[39m[38;5;124m"[39m
+[1;32m   1262[0m     )
+[1;32m   1264[0m output [38;5;241m=[39m [x [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m os[38;5;241m.[39mlistdir(manifest_dir)
+[1;32m   1265[0m           [38;5;28;01mif[39;00m re[38;5;241m.[39mfullmatch([38;5;124m"[39m[38;5;124m.*_manifest_v.*.json[39m[38;5;124m"[39m, x)]
+[1;32m   1267[0m [38;5;28;01mreturn[39;00m [[38;5;28mself[39m[38;5;241m.[39m_find_latest_file(output)]
+
+[0;31mRuntimeError[0m: Expected the provided cache_dir (/root/capsule/data/visual-behavior-ophys/)to have the following subfolders but it did not: visual-behavior-ophys/manifests
+

@@ -1,0 +1,1255 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Visual Behavior Ophys Experiment Data &#8212; SWDB 2023 DataBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'visual-behavior/VBO-ExperimentData';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compare Trial Types" href="VBO-Tutorial-Compare_trial_types.html" />
+    <link rel="prev" title="Visual Behavior Ophys Dataset" href="VBO-Dataset.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Summer Workshop on the Dynamic Brain Databook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/Two-photon-calcium-imaging.html">Two photon calcium imaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../background/Neuropixels-electrophysiology.html">Neuropixels electrophysiology</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../background/NP-Processing_Pipeline.html">Processing Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../visual-coding-2p/vc2p-background.html">Visual Coding 2-photon</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-cross-session-data.html">Cross session data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../visual-coding-np/vcnp.html">Visual Coding — Neuropixels</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-units.html">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-session.html">Extracellular Electrophysiology Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-links.html">Other resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="vb-background.html">Visual Behavior</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="VB-Behavior.html">Visual Behavior Task</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="VB-BehaviorSessionData.html">Tutorial Accessing Behavior Session Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="VB-Ophys.html">Visual Behavior Ophys</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ophys Experiment Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBO-Tutorial-Downloading_data_and_navigating_the_manifest.html">Tutorial Downloading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="VB-Neuropixels.html">Visual Behavior Neuropixels</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../microns-em/em-background.html">EM Connectomics</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/key-tables.html">Annotation Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-skeletons.html">Skeletons</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fvisual-behavior/VBO-ExperimentData.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/visual-behavior/VBO-ExperimentData.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visual Behavior Ophys Experiment Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-libraries">Import required libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-cache-and-get-metadata-tables">Load the cache and get metadata tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-an-experiment">Load an experiment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-metadata-for-this-experiment">show metadata for this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-max-projection-from-this-experiment">plot max projection from this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-cell-specimen-table-with-cells-imaging-metrics">load cell specimen table with cells’ imaging metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-dff-traces-for-the-first-10-cells-this-experiment">show dff traces for the first 10 cells this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-events-traces-for-the-first-10-cells-in-this-experiment">show events traces for the first 10 cells in this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-ophys-timestamps">load ophys timestamps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-a-cell-and-plot-the-traces">Pick a cell and plot the traces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-mouse-running-speed-from-this-experiment">plot mouse running speed from this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-pupil-area-for-the-same-experiment">plot pupil area for the same experiment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-about-visual-stimuli-presented-on-each-trial">Get information about visual stimuli presented on each trial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-task-and-behavioral-data-for-each-trial">Get task and behavioral data for each trial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-an-example-of-one-selected-cell">Plot an example of one selected cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-cell-example">Vip cell example</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="visual-behavior-ophys-experiment-data">
+<h1>Visual Behavior Ophys Experiment Data<a class="headerlink" href="#visual-behavior-ophys-experiment-data" title="Permalink to this heading">#</a></h1>
+<p>This notebook shows how to load optical physiology and behavior data for one imaging plane from one Visual Behavior Ophys session using the AllenSDK. It describes the type of data available and shows a few simple ways of plotting calcium fluorescence traces along with the animal’s behavior and stimulus presentation times.</p>
+<p>Before you run this notebook, please install the allenSDK into your environment</p>
+<section id="import-required-libraries">
+<h2>Import required libraries<a class="headerlink" href="#import-required-libraries" title="Permalink to this heading">#</a></h2>
+<p>We need to import libraries for plotting and manipulating data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> notebook
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import allenSDK and check the version, which should be &gt;2.10.2</span>
+<span class="kn">import</span> <span class="nn">allensdk</span>
+<span class="n">allensdk</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.15.2&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the behavior ophys project cache class from SDK to be able to load the data</span>
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache</span> <span class="kn">import</span> <span class="n">VisualBehaviorOphysProjectCache</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.8/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-the-cache-and-get-metadata-tables">
+<h2>Load the cache and get metadata tables<a class="headerlink" href="#load-the-cache-and-get-metadata-tables" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_parameters docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the path to the dataset</span>
+<span class="n">cache_dir</span> <span class="o">=</span> <span class="s1">&#39;/root/capsule/data/visual-behavior-ophys/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you are working with data in the cloud in Code Ocean, </span>
+<span class="c1"># or if you have already downloaded the full dataset to your local machine, </span>
+<span class="c1"># you can instantiate a local cache</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorOphysProjectCache</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">use_static_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># If you are working with the data locally for the first time, you need to instantiate the cache from S3:</span>
+<span class="c1"># cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=cache_dir)</span>
+          
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># If you are working with data in the cloud in Code Ocean, </span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># or if you have already downloaded the full dataset to your local machine, </span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># you can instantiate a local cache</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorOphysProjectCache</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">use_static_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># If you are working with the data locally for the first time, you need to instantiate the cache from S3:</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># cache = VisualBehaviorOphysProjectCache.from_s3_cache(cache_dir=cache_dir)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_cache_base.py:110,</span> in <span class="ni">ProjectCacheBase.from_local_cache</span><span class="nt">(cls, cache_dir, use_static_cache)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="k">def</span> <span class="nf">from_local_cache</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>     <span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>     <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="n">use_static_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProjectCacheBase&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;instantiates this object with a local cache.</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">110</span>     <span class="n">fetch_api</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cloud_api_class</span><span class="p">()</span><span class="o">.</span><span class="n">from_local_cache</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>         <span class="n">cache_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>         <span class="n">project_name</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">PROJECT_NAME</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>         <span class="n">ui_class_name</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>         <span class="n">use_static_cache</span><span class="o">=</span><span class="n">use_static_cache</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">fetch_api</span><span class="o">=</span><span class="n">fetch_api</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_apis/data_io/project_cloud_api_base.py:143,</span> in <span class="ni">ProjectCloudApiBase.from_local_cache</span><span class="nt">(cls, cache_dir, project_name, ui_class_name, use_static_cache)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;instantiates this object with a local cache.</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="k">if</span> <span class="n">use_static_cache</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>     <span class="n">cache</span> <span class="o">=</span> <span class="n">StaticLocalCache</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="n">cache_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">project_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="n">ui_class_name</span><span class="o">=</span><span class="n">ui_class_name</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="n">cache</span> <span class="o">=</span> <span class="n">LocalCache</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>         <span class="n">cache_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>         <span class="n">project_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>         <span class="n">ui_class_name</span><span class="o">=</span><span class="n">ui_class_name</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:1245,</span> in <span class="ni">StaticLocalCache.__init__</span><span class="nt">(self, cache_dir, project_name, ui_class_name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1244</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">,</span> <span class="n">project_name</span><span class="p">,</span> <span class="n">ui_class_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1245</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">project_name</span><span class="o">=</span><span class="n">project_name</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1246</span>                      <span class="n">ui_class_name</span><span class="o">=</span><span class="n">ui_class_name</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:78,</span> in <span class="ni">BasicLocalCache.__init__</span><span class="nt">(self, cache_dir, project_name, ui_class_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span> <span class="o">=</span> <span class="n">cache_dir</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project_name</span> <span class="o">=</span> <span class="n">project_name</span>
+<span class="ne">---&gt; </span><span class="mi">78</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manifest_file_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_list_all_manifests</span><span class="p">()</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:1258,</span> in <span class="ni">StaticLocalCache._list_all_manifests</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="n">manifest_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1255</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">project_name</span><span class="p">,</span> <span class="s2">&quot;manifests&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">manifest_dir</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1258</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1259</span>         <span class="sa">f</span><span class="s2">&quot;Expected the provided cache_dir (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1260</span>         <span class="s2">&quot;to have the following subfolders but it did not: &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1261</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_name</span><span class="si">}</span><span class="s2">/manifests&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1262</span>     <span class="p">)</span>
+<span class="nn">   1264 output = [x for x</span> in <span class="ni">os.listdir</span><span class="nt">(manifest_dir)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1265</span>           <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="s2">&quot;.*_manifest_v.*.json&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1267</span> <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_find_latest_file</span><span class="p">(</span><span class="n">output</span><span class="p">)]</span>
+
+<span class="ne">RuntimeError</span>: Expected the provided cache_dir (/root/capsule/data/visual-behavior-ophys/)to have the following subfolders but it did not: visual-behavior-ophys/manifests
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get metadata tables</span>
+<span class="n">behavior_session_table</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session_table</span><span class="p">()</span>  
+<span class="n">ophys_session_table</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_session_table</span><span class="p">()</span>   
+<span class="n">ophys_experiment_table</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_experiment_table</span><span class="p">()</span>                         
+
+<span class="c1">#print number of items in each table for all imaging and behavioral sessions</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of behavior sessions = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_session_table</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of ophys sessions = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ophys_session_table</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of ophys experiments = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ophys_experiment_table</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The term <b>ophys experiment</b> is used to describe one imaging plane during one <b>ophys session</b>. Each ophys session can contain one or more ophys experiments (imaging planes) depending on which microscope was used.</p>
+<p>For datasets acquired using a single-plane imaging microscope (<code class="docutils literal notranslate"><span class="pre">equipment_name</span></code> = <code class="docutils literal notranslate"><span class="pre">CAMP#.#</span></code>), there will be only 1 <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code> per <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code>. For sessions acquired with the multi-plane Mesoscope (<code class="docutils literal notranslate"><span class="pre">equipment_name</span></code> = <code class="docutils literal notranslate"><span class="pre">MESO.#</span></code>), there can be up to 8 ophys experiments (i.e. imaging planes) associated with that session.</p>
+<p>The <b>ophys_session_table</b> contains metadata for each imaging session and is organized by the <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code>.</p>
+<p>The <b>ophys_experiment_table</b> contains metadata for each imaging plane in each session and is organized by the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span></code>. This table includes all the metadata provided by the <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code>, as well as information specific to the imaging plane, such as the <code class="docutils literal notranslate"><span class="pre">imaging_depth</span></code> and <code class="docutils literal notranslate"><span class="pre">targeted_structure</span></code>.</p>
+<p>A single imaging plane (aka ophys experiment) is linked across sessions using the <code class="docutils literal notranslate"><span class="pre">ophys_container_id</span></code>. An <b>ophys container</b> can contain a variable number of <code class="docutils literal notranslate"><span class="pre">ophys_experiment_ids</span></code> depending on which <code class="docutils literal notranslate"><span class="pre">session_types</span></code> were acquired and which passed quality control checks.</p>
+<p>The <b>behavior_session_table</b> contains metadata related to the full training history of each mouse and is organized by the <code class="docutils literal notranslate"><span class="pre">behavior_session_id</span></code>. Some <b>behavior sessions</b> took place under the 2-photon microscope (<code class="docutils literal notranslate"><span class="pre">session_type</span></code> beginning with <code class="docutils literal notranslate"><span class="pre">OPHYS_</span></code>) and will have an associated <code class="docutils literal notranslate"><span class="pre">ophys_session_id</span></code> if the ophys data passed quality control and is available for analysis. Some ophys sessions may not pass quality control, but the behavior data is still provided in the <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code>.</p>
+<p>In this notebook, we will use the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table</span></code> to select experiments of interest and look at them in a greater detail.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s print a sample of 5 rows to see what&#39;s in the table</span>
+<span class="n">ophys_experiment_table</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can get any experiment ids from the experiment table by subsetting the table using various conditions (aka columns) in the table. Here, we can select experiments from Sst mice only, novel Ophys session 4, with 0 prior exposures to the stimulus (meaning the session was not a relake).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all Sst experiments for ophys session 4</span>
+<span class="n">selected_experiment_table</span> <span class="o">=</span> <span class="n">ophys_experiment_table</span><span class="p">[(</span><span class="n">ophys_experiment_table</span><span class="o">.</span><span class="n">cre_line</span><span class="o">==</span><span class="s1">&#39;Sst-IRES-Cre&#39;</span><span class="p">)</span><span class="o">&amp;</span>
+                        <span class="p">(</span><span class="n">ophys_experiment_table</span><span class="o">.</span><span class="n">session_number</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span>
+                        <span class="p">(</span><span class="n">ophys_experiment_table</span><span class="o">.</span><span class="n">prior_exposures_to_image_set</span><span class="o">==</span><span class="mi">0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of experiments: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected_experiment_table</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember that any given experiment contains data from only one imaging plane. Some of these experiments come from the same imaging session. Here, we can check how many unique imaging sessions are associated with experiments selected above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of unique sessions: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected_experiment_table</span><span class="p">[</span><span class="s1">&#39;ophys_session_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-an-experiment">
+<h2>Load an experiment<a class="headerlink" href="#load-an-experiment" title="Permalink to this heading">#</a></h2>
+<p>Let’s pick a random experiment from the table and plot example ophys and behavioral data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select first experiment from the table to look at in more detail. </span>
+<span class="c1"># Note that python enumeration starts at 0.</span>
+<span class="n">ophys_experiment_id</span> <span class="o">=</span> <span class="n">selected_experiment_table</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># load the data for this ophys experiment from the cache</span>
+<span class="n">ophys_experiment</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_ophys_experiment</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="show-metadata-for-this-experiment">
+<h3>show metadata for this experiment<a class="headerlink" href="#show-metadata-for-this-experiment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can get additional information about this experiment from the metadata field of the dataset class. Here, you can see that this experiment was in Sst Cre line, in a female mouse at 233 days old, recorded using mesoscope (this is one of four imaging planes), at imaging depth of 150 microns, in primary visual cortex (VISp). This experiment is also from OPHYS 1 session using image set A.</p>
+</section>
+<section id="plot-max-projection-from-this-experiment">
+<h3>plot max projection from this experiment<a class="headerlink" href="#plot-max-projection-from-this-experiment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">max_projection</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Max projection plots an average image from the movie recorded during an imaging session. Plotting max projection can give you a sense of how many neurons were visible during imaging and how clear and stable the imaging session was.</p>
+</section>
+<section id="load-cell-specimen-table-with-cells-imaging-metrics">
+<h3>load cell specimen table with cells’ imaging metrics<a class="headerlink" href="#load-cell-specimen-table-with-cells-imaging-metrics" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">cell_specimen_table</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cell_specimen_table</span></code> includes information about <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> coordinates of the cell in the imaging plane as well as how much correction was applied during motion correction process.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cell_roi_id</span></code> is a unique id assigned to each ROI during segmentation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code> is a unique id assigned to each cell after cell matching, which means that if we were able to identify and match the same cell across multiple sessions, it can be identified by its unique cell specimen id.</p>
+<p><code class="docutils literal notranslate"><span class="pre">roi_mask</span></code> is a boolean array that can be used to visualize where any given cell is in the imaging field.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">cell_specimen_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;roi_mask&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="show-dff-traces-for-the-first-10-cells-this-experiment">
+<h3>show dff traces for the first 10 cells this experiment<a class="headerlink" href="#show-dff-traces-for-the-first-10-cells-this-experiment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">dff_traces</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dff_traces</span></code> dataframe contains traces for all neurons in this experiment, unaligned to any events in the task.</p>
+<p>You can select rows by their enumerated number using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">dff_traces</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can use <code class="docutils literal notranslate"><span class="pre">cell_specimen_id</span></code> as index to select cells with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">dff_traces</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1086608577</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you don’t want dff in a pandas dataframe format, you can load dff traces as an array, using <code class="docutils literal notranslate"><span class="pre">np.vstack</span></code> function to format the data into cell by time array and <code class="docutils literal notranslate"><span class="pre">.values</span></code> to only grab values in dff column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dff_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">dff_traces</span><span class="o">.</span><span class="n">dff</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This array contrains dff traces from </span><span class="si">{}</span><span class="s1"> neurons and it is </span><span class="si">{}</span><span class="s1"> samples long.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dff_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dff_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="show-events-traces-for-the-first-10-cells-in-this-experiment">
+<h3>show events traces for the first 10 cells in this experiment<a class="headerlink" href="#show-events-traces-for-the-first-10-cells-in-this-experiment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">events</span></code> table is similar to <code class="docutils literal notranslate"><span class="pre">dff_traces</span></code> but the output provides traces of extrapolated events. Events are computed on unmixed dff traces for each cell as described in <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/30652683/">Giovannucci et al. 2019</a>. The magnitude of events approximates the firing rate of neurons with the resolusion of about 200 ms. The biggest advantage of using events over dff traces is they exclude prolonged Ca transients that may conteminate neural responses to subsequent stimuli. You can also use <code class="docutils literal notranslate"><span class="pre">filtered_events</span></code> which are events convolved with a filter created using <code class="docutils literal notranslate"><span class="pre">stats.halfnorm</span></code> method.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> is computed from Poisson distribution of events in the trace (think of it as a center of mass of the distribution, larger lambda == higher “firing rate”).</p>
+<p><code class="docutils literal notranslate"><span class="pre">noise_std</span></code> is a measure of variability in the events trace.</p>
+</section>
+<section id="load-ophys-timestamps">
+<h3>load ophys timestamps<a class="headerlink" href="#load-ophys-timestamps" title="Permalink to this heading">#</a></h3>
+<p>The timestamps are the same for <code class="docutils literal notranslate"><span class="pre">dff_traces</span></code> and <code class="docutils literal notranslate"><span class="pre">events</span></code>, in seconds</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">ophys_timestamps</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pick-a-cell-and-plot-the-traces">
+<h2>Pick a cell and plot the traces<a class="headerlink" href="#pick-a-cell-and-plot-the-traces" title="Permalink to this heading">#</a></h2>
+<p>We can select a random cell from the experiment and plot its dff and events traces along with other behavioral and stimulus data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cell_specimen_ids</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">cell_specimen_table</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="c1"># a list of all cell ids</span>
+<span class="n">cell_specimen_id</span> <span class="o">=</span> <span class="n">cell_specimen_ids</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># let&#39;s pick 6th cell</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cell specimen id = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">))</span> <span class="c1"># print id</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot dff and events traces overlaid from the cell selected above</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">ophys_timestamps</span><span class="p">,</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">dff_traces</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cell_specimen_id</span><span class="p">,</span> <span class="s1">&#39;dff&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dff&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">ophys_timestamps</span><span class="p">,</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cell_specimen_id</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;events&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (seconds)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;trace magnitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cell specimen id = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cell_specimen_id</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that as expected, events trace is much cleaner than dff and it generally follows big Ca transients really well. We can also see that this cell was not very active during our experiment. Each experiment has a 5 minute movie at the end, which often drives neural activity really well. We can see a notable increase in cell’s activity at the end of this experiment as well.</p>
+<section id="plot-mouse-running-speed-from-this-experiment">
+<h3>plot mouse running speed from this experiment<a class="headerlink" href="#plot-mouse-running-speed-from-this-experiment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_timestamps</span><span class="p">,</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">running_speed</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (seconds)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;running speed (cm/s)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ophys experiment </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-pupil-area-for-the-same-experiment">
+<h3>plot pupil area for the same experiment<a class="headerlink" href="#plot-pupil-area-for-the-same-experiment" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">eye_tracking</span><span class="o">.</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">eye_tracking</span><span class="o">.</span><span class="n">pupil_area</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (seconds)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;pupil area (pixels^2)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ophys experiment </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can find all attributes and methods that belong to dataset class using this helpful method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">list_data_attributes_and_methods</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can learn more about them by calling <code class="docutils literal notranslate"><span class="pre">help</span></code> on them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">get_segmentation_mask_image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="get-information-about-visual-stimuli-presented-on-each-trial">
+<h2>Get information about visual stimuli presented on each trial<a class="headerlink" href="#get-information-about-visual-stimuli-presented-on-each-trial" title="Permalink to this heading">#</a></h2>
+<p>get stimulus information for this experiment and assign it to a table called <code class="docutils literal notranslate"><span class="pre">stimulus_table</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimulus_table</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span>
+<span class="n">stimulus_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This table provides helpful information like image name, start, duration and stop of image presentation, and whether the image was omitted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This experiment had </span><span class="si">{}</span><span class="s1"> stimuli.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stimulus_table</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Out of all stimuli presented, </span><span class="si">{}</span><span class="s1"> were omitted.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">stimulus_table</span><span class="p">[</span><span class="n">stimulus_table</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;omitted&#39;</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">keys()</span></code> method to see the names of the columns in any pandas dataframe table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stimulus_table</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-task-and-behavioral-data-for-each-trial">
+<h2>Get task and behavioral data for each trial<a class="headerlink" href="#get-task-and-behavioral-data-for-each-trial" title="Permalink to this heading">#</a></h2>
+<p>get behavioral trial information and assign it to <code class="docutils literal notranslate"><span class="pre">trials_table</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials_table</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">trials</span>
+<span class="n">trials_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials_table</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This table has information about experiment trials. <code class="docutils literal notranslate"><span class="pre">go</span></code> trials are change trials when the animal was supposed to lick. If the animal licked, <code class="docutils literal notranslate"><span class="pre">hit</span></code> is set to True for that trial. If the animal was rewarded, <code class="docutils literal notranslate"><span class="pre">reward_time</span></code> will have time in seconds. If this was an auto rewarded trial (regardless of whether the animal got it right), <code class="docutils literal notranslate"><span class="pre">auto_rewarded</span></code> is set to True. The trials table also includes <code class="docutils literal notranslate"><span class="pre">response_latency</span></code> which can be used as reaction time of the animal during the experiment.</p>
+</section>
+<section id="plot-an-example-of-one-selected-cell">
+<h2>Plot an example of one selected cell<a class="headerlink" href="#plot-an-example-of-one-selected-cell" title="Permalink to this heading">#</a></h2>
+<p>Now, we will put together a plotting functions that utilizes data in the dataset class to plot ophys traces and behavioral data from an experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of all unique stimuli presented in this experiment</span>
+<span class="n">unique_stimuli</span> <span class="o">=</span> <span class="p">[</span><span class="n">stimulus</span> <span class="k">for</span> <span class="n">stimulus</span> <span class="ow">in</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()]</span>
+
+<span class="c1"># create a colormap with each unique image having its own color</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="p">{</span><span class="n">image_name</span><span class="p">:</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="n">image_number</span><span class="p">]</span> <span class="k">for</span> <span class="n">image_number</span><span class="p">,</span> <span class="n">image_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">unique_stimuli</span><span class="p">))}</span>
+<span class="n">colormap</span><span class="p">[</span><span class="s1">&#39;omitted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># set omitted stimulus to white color</span>
+
+<span class="c1"># add the colors for each image to the stimulus presentations table in the dataset</span>
+<span class="n">stimulus_presentations</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span>
+<span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">image_name</span><span class="p">:</span> <span class="n">colormap</span><span class="p">[</span><span class="n">image_name</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to plot dff traces</span>
+<span class="k">def</span> <span class="nf">plot_dff_trace</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_specimen_id</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        ax: axis on which to plot</span>
+<span class="sd">        cell_specimen_id: id of the cell to plot</span>
+<span class="sd">        intial_time: initial time to plot from</span>
+<span class="sd">        final_time: final time to plot to</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1">#create a dataframe using dff trace from one seleted cell</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dff&#39;</span><span class="p">:</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">dff_traces</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cell_specimen_id</span><span class="p">]</span><span class="o">.</span><span class="n">dff</span><span class="p">,</span>
+        <span class="s1">&#39;timestamps&#39;</span><span class="p">:</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">ophys_timestamps</span><span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">dff_trace_sample</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= @initial_time and timestamps &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">dff_trace_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span>
+        <span class="n">dff_trace_sample</span><span class="p">[</span><span class="s1">&#39;dff&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">dff_trace_sample</span><span class="p">[</span><span class="s1">&#39;dff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="p">)</span>
+    
+<span class="c1"># function to plot events traces    </span>
+<span class="k">def</span> <span class="nf">plot_events_trace</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_specimen_id</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+    <span class="c1"># create a dataframe using events trace from one seleted cell</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;events&#39;</span><span class="p">:</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cell_specimen_id</span><span class="p">]</span><span class="o">.</span><span class="n">events</span><span class="p">,</span>
+        <span class="s1">&#39;timestamps&#39;</span><span class="p">:</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">ophys_timestamps</span><span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">events_trace_sample</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= @initial_time and timestamps &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">events_trace_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span>
+        <span class="n">events_trace_sample</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">events_trace_sample</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="c1"># function to plot running speed   </span>
+<span class="k">def</span> <span class="nf">plot_running</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+    <span class="n">running_sample</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">running_speed</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= @initial_time and timestamps &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">running_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span>
+        <span class="n">running_sample</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">running_sample</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s1">&#39;--&#39;</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+        <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="p">)</span>
+<span class="c1"># function to plot pupil diameter   </span>
+<span class="k">def</span> <span class="nf">plot_pupil</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+    <span class="n">pupil_sample</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">eye_tracking</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= @initial_time and timestamps &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">pupil_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span>
+        <span class="n">pupil_sample</span><span class="p">[</span><span class="s1">&#39;pupil_width&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">pupil_sample</span><span class="p">[</span><span class="s1">&#39;pupil_width&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span>
+        <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="p">)</span>
+<span class="c1"># function to plot licks</span>
+<span class="k">def</span> <span class="nf">plot_licks</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+    <span class="n">licking_sample</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">licks</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= @initial_time and timestamps &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">licking_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">licking_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]),</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span>
+        <span class="n">markersize</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+    <span class="p">)</span>
+<span class="c1"># function to plot rewards    </span>
+<span class="k">def</span> <span class="nf">plot_rewards</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+    <span class="n">rewards_sample</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">rewards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;timestamps &gt;= @initial_time and timestamps &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">rewards_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">],</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">rewards_sample</span><span class="p">[</span><span class="s1">&#39;timestamps&#39;</span><span class="p">]),</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+        <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+        <span class="n">markersize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">plot_stimuli</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">):</span>
+    <span class="n">stimulus_presentations_sample</span> <span class="o">=</span> <span class="n">stimulus_presentations</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;end_time &gt;= @initial_time and start_time &lt;= @final_time&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">stimulus</span> <span class="ow">in</span> <span class="n">stimulus_presentations_sample</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;start_time&#39;</span><span class="p">],</span> <span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">stimulus</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial_time</span> <span class="o">=</span> <span class="mi">820</span> <span class="c1"># start time in seconds</span>
+<span class="n">final_time</span> <span class="o">=</span> <span class="mi">860</span> <span class="c1"># stop time in seconds</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plot_dff_trace</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cell_specimen_ids</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_events_trace</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cell_specimen_ids</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_stimuli</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;normalized response magnitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;dff trace&#39;</span><span class="p">,</span> <span class="s1">&#39;events trace&#39;</span><span class="p">])</span>
+
+<span class="n">plot_running</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_pupil</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_licks</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_rewards</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_stimuli</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;running speed&#39;</span><span class="p">,</span> <span class="s1">&#39;pupil&#39;</span><span class="p">,</span><span class="s1">&#39;licks&#39;</span><span class="p">,</span> <span class="s1">&#39;rewards&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From looking at the activity of this neuron, we can see that it was very active during our experiment but its activity does not appear to be reliably locked to image presentations. It does seem to vaguely follow animal’s running speed, thus it might be modulated by running.</p>
+<section id="vip-cell-example">
+<h3>Vip cell example<a class="headerlink" href="#vip-cell-example" title="Permalink to this heading">#</a></h3>
+<p>We can get a different, Vip experiment from <em>Ophys session 1</em> and plot it to compare response traces. This gives us a similar plot from a different inhibitory neuron to compare their neural dynamics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a Vip experiment with familiar images (session_number = 1, 2, or 3)</span>
+<span class="n">selected_experiment_table</span> <span class="o">=</span> <span class="n">ophys_experiment_table</span><span class="p">[(</span><span class="n">ophys_experiment_table</span><span class="o">.</span><span class="n">cre_line</span><span class="o">==</span><span class="s1">&#39;Vip-IRES-Cre&#39;</span><span class="p">)</span><span class="o">&amp;</span>
+                        <span class="p">(</span><span class="n">ophys_experiment_table</span><span class="o">.</span><span class="n">session_number</span><span class="o">==</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># load the experiment data from the cache</span>
+<span class="n">ophys_experiment</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_ophys_experiment</span><span class="p">(</span><span class="n">selected_experiment_table</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># get the cell IDs</span>
+<span class="n">cell_specimen_ids</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">cell_specimen_table</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span> <span class="c1"># a list of all cell ids</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of all unique stimuli presented in this experiment</span>
+<span class="n">unique_stimuli</span> <span class="o">=</span> <span class="p">[</span><span class="n">stimulus</span> <span class="k">for</span> <span class="n">stimulus</span> <span class="ow">in</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()]</span>
+
+<span class="c1"># create a colormap with each unique image having its own color</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="p">{</span><span class="n">image_name</span><span class="p">:</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()[</span><span class="n">image_number</span><span class="p">]</span> <span class="k">for</span> <span class="n">image_number</span><span class="p">,</span> <span class="n">image_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">unique_stimuli</span><span class="p">))}</span>
+<span class="n">colormap</span><span class="p">[</span><span class="s1">&#39;omitted&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># add the colors for each image to the stimulus presentations table in the dataset</span>
+<span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ophys_experiment</span><span class="o">.</span><span class="n">stimulus_presentations</span><span class="p">[</span><span class="s1">&#39;image_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">image_name</span><span class="p">:</span> <span class="n">colormap</span><span class="p">[</span><span class="n">image_name</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can plot the same information for a different cell in the dataset</span>
+<span class="n">initial_time</span> <span class="o">=</span> <span class="mi">580</span> <span class="c1"># start time in seconds</span>
+<span class="n">final_time</span> <span class="o">=</span> <span class="mi">620</span> <span class="c1"># stop time in seconds</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="n">plot_dff_trace</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cell_specimen_ids</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_events_trace</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cell_specimen_ids</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_stimuli</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;normalized response magnitude&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;dff trace&#39;</span><span class="p">,</span> <span class="s1">&#39;events trace&#39;</span><span class="p">])</span>
+
+<span class="n">plot_running</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_pupil</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_licks</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_rewards</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+<span class="n">plot_stimuli</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">initial_time</span><span class="p">,</span> <span class="n">final_time</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;running speed&#39;</span><span class="p">,</span> <span class="s1">&#39;pupil&#39;</span><span class="p">,</span><span class="s1">&#39;licks&#39;</span><span class="p">,</span> <span class="s1">&#39;rewards&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the dynamics of a Vip neuron are also not driven by the visual stimuli. Aligning neural activity to different behavioral or experimental events might reveal what this neuron is driven by.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VBO-Dataset.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Visual Behavior Ophys Dataset</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VBO-Tutorial-Compare_trial_types.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Compare Trial Types</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-libraries">Import required libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-cache-and-get-metadata-tables">Load the cache and get metadata tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-an-experiment">Load an experiment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-metadata-for-this-experiment">show metadata for this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-max-projection-from-this-experiment">plot max projection from this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-cell-specimen-table-with-cells-imaging-metrics">load cell specimen table with cells’ imaging metrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-dff-traces-for-the-first-10-cells-this-experiment">show dff traces for the first 10 cells this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-events-traces-for-the-first-10-cells-in-this-experiment">show events traces for the first 10 cells in this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-ophys-timestamps">load ophys timestamps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-a-cell-and-plot-the-traces">Pick a cell and plot the traces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-mouse-running-speed-from-this-experiment">plot mouse running speed from this experiment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-pupil-area-for-the-same-experiment">plot pupil area for the same experiment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-about-visual-stimuli-presented-on-each-trial">Get information about visual stimuli presented on each trial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-task-and-behavioral-data-for-each-trial">Get task and behavioral data for each trial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-an-example-of-one-selected-cell">Plot an example of one selected cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vip-cell-example">Vip cell example</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saskia de Vries, Marina Garrett, Corbett Bennet, Galen Lynch, Anna Lakunina, Casey Schneider-Mizell
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,2271 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Accessing Visual Behavior Ophys Data &#8212; SWDB 2023 DataBook</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'visual-behavior/VBO-Tutorial-Downloading_data_and_navigating_the_manifest';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visual Behavior Neuropixels" href="VB-Neuropixels.html" />
+    <link rel="prev" title="Compare Trial Types" href="VBO-Tutorial-Compare_trial_types.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Summer Workshop on the Dynamic Brain Databook
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../background/background.html">Background</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../background/Mouse-visual-system.html">Mouse visual system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/transgenic-tools.html">Transgenic tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../background/Two-photon-calcium-imaging.html">Two photon calcium imaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../background/Neuropixels-electrophysiology.html">Neuropixels electrophysiology</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../background/NP-Processing_Pipeline.html">Processing Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../background/Ophys-ephys-comparison.html">Ophys ephys comparison</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../visual-coding-2p/vc2p-background.html">Visual Coding 2-photon</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-dataset.html">Dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-session-data.html">Getting data from a session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-stimuli.html">Visual stimuli</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-evoked-response.html">Exercise: Evoked response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-2p/vc2p-cross-session-data.html">Cross session data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../visual-coding-np/vcnp.html">Visual Coding — Neuropixels</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-quickstart.html">Quick start guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-data-access.html">Accessing Neuropixels Visual Coding Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-quality-metrics.html">Unit Quality Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-units.html">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-receptive-fields.html">Receptive fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-lfp.html">Local field potential (LFP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-optotagging.html">Optotagging Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-session.html">Extracellular Electrophysiology Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visual-coding-np/vcnp-links.html">Other resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cell-type-lookup-table/ctlut-background.html">Cell Type Look-up Table</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-session-data.html">Session data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-optotagging.html">Optotagging</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-accessing-data.html">Accessing cell type lookup table data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cell-type-lookup-table/ctlut-identifying-tagged-units.html">Identifying tagged neurons</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="vb-background.html">Visual Behavior</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="VB-Behavior.html">Visual Behavior Task</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="VB-BehaviorSessionData.html">Tutorial Accessing Behavior Session Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="VB-Ophys.html">Visual Behavior Ophys</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="VBO-Dataset.html">Visual Behavior Ophys Dataset</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="VBO-ExperimentData.html">Ophys Experiment Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBO-Tutorial-Compare_trial_types.html">Tutorial Comparing Trial Types</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Tutorial Downloading Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="VB-Neuropixels.html">Visual Behavior Neuropixels</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Dataset.html">Visual Behavior Neuropixels Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-SessionData.html">Visual Behavior Neuropixels Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Tutorial-Aligning_Neural_Data_to_Stimuli.html">Tutorial Aligning Neural Data to Stimuli</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Tutorial-Aligning_Behavior_Data_to_Task_Events.html">Tutorial Aligning Behavioral Data to Task Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VBN-Tutorial-Analyzing_LFP_Data.html">Tutorial Analyzing LFP data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../microns-em/em-background.html">EM Connectomics</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-structural-data.html">Dataset Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/proofreading.html">Proofreading and Data Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-neuroglancer.html">Neuroglancer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-dash-apps.html">Dash Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-caveclient-setup.html">Setting up CAVEclient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-querying-tables.html">Programmatic Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/key-tables.html">Annotation Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-volume-data.html">Imagery and Segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-skeletons.html">Skeletons</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-meshes.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-functional_data.html">MICrONS Functional Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../microns-em/em-ultrastructure.html">Ultrastructure Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fvisual-behavior/VBO-Tutorial-Downloading_data_and_navigating_the_manifest.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/visual-behavior/VBO-Tutorial-Downloading_data_and_navigating_the_manifest.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Accessing Visual Behavior Ophys Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options-for-data-access">Options for data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-retrieve-data">Using the AllenSDK to retrieve data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-allensdk-into-your-local-environment">Instal AllenSDK into your local environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-allensdk-into-your-notebook-environment">Install AllenSDK into your notebook environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-packages">Import required packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-versions-of-the-dataset">Managing versions of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-manifests">Discovering manifests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-manifests-dataset-versions">Loading manifests/dataset versions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-ophys-metadata">Using the AllenSDK to access Visual Behavior Ophys metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data">Using the AllenSDK to access Visual Behavior and Visual Behavior Ophys data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-complete-dataset-with-allensdk">Downloading the complete dataset with AllenSDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-download-of-data-from-s3">Direct download of data from S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-previous-versions-of-released-data-from-s3">Downloading previous versions of released data from S3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-and-downloading-a-specific-manifest-version-for-the-data-release">Listing and downloading a specific manifest version for the data release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-versioned-manifest-to-download-a-specific-data-version">Using a versioned manifest to download a specific data version</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="accessing-visual-behavior-ophys-data">
+<h1>Accessing Visual Behavior Ophys Data<a class="headerlink" href="#accessing-visual-behavior-ophys-data" title="Permalink to this heading">#</a></h1>
+<section id="tutorial-overview">
+<h2>Tutorial overview<a class="headerlink" href="#tutorial-overview" title="Permalink to this heading">#</a></h2>
+<p>This Jupyter notebook covers the various methods for accessing the Allen Institute Visual Behavior Ophys dataset. We will go over how to request data, where it’s stored, and what the various files contain. If you’re having trouble downloading the data, or you just want to know more about what’s going on under the hood, this is a good place to start.</p>
+<p>This data release will not have a web interface for browsing through the released data, as with the <a class="reference external" href="http://observatory.brain-map.org/visualcoding">two-photon imaging Visual Coding dataset</a>. Instead, the data must be retrieved through the AllenSDK (Python 3.6+) or via requests sent to the <strong>Amazon Web Services (AWS)</strong> <strong>Simple Storage Service (S3)</strong> bucket (name: <a class="reference external" href="https://s3.console.aws.amazon.com/s3/buckets/visual-behavior-ophys-data">visual-behavior-ophys-data</a>) for this project.</p>
+<p>Functions related to data analysis as well as descriptions of metadata table columns will be covered in other tutorials. For a full list of available tutorials for this project, see the <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">SDK documentation</a>.</p>
+</section>
+<section id="options-for-data-access">
+<h2>Options for data access<a class="headerlink" href="#options-for-data-access" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> object in the AllenSDK is the easiest way to interact with the released data. This object abstracts away the details of on-disk file storage, and delivers the data to you as ready-to-analyze Python objects. The cache will automatically keep track of which files are stored locally, and will download additional files on an as-needed basis. Usually you won’t need to worry about the organization of these files, but this tutorial will cover those details in case you want to analyze them without using the AllenSDK (e.g., in Matlab). This tutorial begins with an introduction to this approach.</p>
+<p>Another option is to directly download the data using an S3 URL. This should be used if the other options are broken or are not available to you. Instructions for this can be found <a href='#Direct-download-of-data-from-S3'>at the end of this tutorial</a>.</p>
+</section>
+<section id="using-the-allensdk-to-retrieve-data">
+<h2>Using the AllenSDK to retrieve data<a class="headerlink" href="#using-the-allensdk-to-retrieve-data" title="Permalink to this heading">#</a></h2>
+<p>Most users will want to access data via the AllenSDK. This requires nothing more than a Python interpreter and some free disk space to store the data locally.</p>
+<p>How much data is there? If you want to download the complete dataset (3021 Behavior Sessions, 551 Behavior Ophys Sessions containing 1165 Behavior Ophys Experiments), you’ll need 1000.8 GB of space, split across the following files:</p>
+<ol class="arabic simple">
+<li><p>CSV files containing information about behavior sessions, behavior ophys sessions, and behavior ophys experiments (1.3 MB)</p></li>
+<li><p>NWB files containing data for behavior sessions (437.6 GB total, min file size = 0.049 GB, max file size = 0.194 GB)</p></li>
+<li><p>NWB files containing data for behavior ophys experiments (563.2 GB total, min file size = 0.231 GB, max file size = 2.96 GB)</p></li>
+</ol>
+<p>Before downloading the data, you must decide on a cache directory where you would like downloaded data to be stored. This directory is where the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> object will look first when you request a metadata table or a data file.</p>
+<p>When you initialize a local cache for the first time, it will create the manifest file at the path that you specify. This file lives one directory up from the rest of the data, so make sure you put it somewhere that has enough space available.</p>
+<p>When you need to access the data in subsequent analysis sessions, you should point the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> object to an existing cache directory; otherwise, it will try to re-download the data in a new location.</p>
+<p>To get started with this approach, first take care of the necessary imports:</p>
+<p>We will first install allensdk into your environment by running the appropriate commands below.</p>
+</section>
+<section id="instal-allensdk-into-your-local-environment">
+<h2>Instal AllenSDK into your local environment<a class="headerlink" href="#instal-allensdk-into-your-local-environment" title="Permalink to this heading">#</a></h2>
+<p>You can install AllenSDK with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>allensdk
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting allensdk
+  Using cached allensdk-2.15.2-py3-none-any.whl (4.0 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting psycopg2-binary (from allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading psycopg2_binary-2.9.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/3.0 MB</span> <span class=" -Color -Color-Red">31.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">44.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting hdmf&lt;=3.4.7 (from allensdk)
+  Using cached hdmf-3.4.7-py3-none-any.whl (187 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting h5py (from allensdk)
+  Downloading h5py-3.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.8 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/4.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">4.7/4.8 MB</span> <span class=" -Color -Color-Red">226.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.8/4.8 MB</span> <span class=" -Color -Color-Red">101.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib&lt;3.4.3,&gt;=1.4.3 (from allensdk)
+  Downloading matplotlib-3.4.2.tar.gz (37.3 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/37.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.7/37.3 MB</span> <span class=" -Color -Color-Red">231.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.6/37.3 MB</span> <span class=" -Color -Color-Red">191.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.3/37.3 MB</span> <span class=" -Color -Color-Red">189.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━ <span class=" -Color -Color-Green">27.4/37.3 MB</span> <span class=" -Color -Color-Red">193.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">32.5/37.3 MB</span> <span class=" -Color -Color-Red">175.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">143.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">143.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">143.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">143.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">143.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">143.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">37.3/37.3 MB</span> <span class=" -Color -Color-Red">35.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting numpy (from allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas&gt;=1.1.5 (from allensdk)
+  Downloading pandas-2.0.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.4/12.3 MB</span> <span class=" -Color -Color-Red">224.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.3/12.3 MB</span> <span class=" -Color -Color-Red">229.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.3/12.3 MB</span> <span class=" -Color -Color-Red">229.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.3/12.3 MB</span> <span class=" -Color -Color-Red">97.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jinja2&gt;=3.0.0 in /opt/conda/lib/python3.10/site-packages (from allensdk) (3.1.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy&lt;2.0.0,&gt;=1.4.0 (from allensdk)
+  Downloading scipy-1.11.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.3 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/36.3 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.1/36.3 MB</span> <span class=" -Color -Color-Red">214.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.7/36.3 MB</span> <span class=" -Color -Color-Red">219.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">22.2/36.3 MB</span> <span class=" -Color -Color-Red">218.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">29.7/36.3 MB</span> <span class=" -Color -Color-Red">215.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.3/36.3 MB</span> <span class=" -Color -Color-Red">236.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.3/36.3 MB</span> <span class=" -Color -Color-Red">236.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.3/36.3 MB</span> <span class=" -Color -Color-Red">236.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.3/36.3 MB</span> <span class=" -Color -Color-Red">236.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">36.3/36.3 MB</span> <span class=" -Color -Color-Red">236.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">36.3/36.3 MB</span> <span class=" -Color -Color-Red">45.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&lt;2.0.0,&gt;=1.9.0 in /opt/conda/lib/python3.10/site-packages (from allensdk) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pynrrd&lt;1.0.0,&gt;=0.2.1 (from allensdk)
+  Using cached pynrrd-0.4.3-py2.py3-none-any.whl (18 kB)
+Collecting future&lt;1.0.0,&gt;=0.14.3 (from allensdk)
+  Using cached future-0.18.3.tar.gz (840 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25hRequirement already satisfied: requests&lt;3.0.0 in /opt/conda/lib/python3.10/site-packages (from allensdk) (2.31.0)
+Collecting requests-toolbelt&lt;1.0.0 (from allensdk)
+  Using cached requests_toolbelt-0.10.1-py2.py3-none-any.whl (54 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting simplejson&lt;4.0.0,&gt;=3.10.0 (from allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading simplejson-3.19.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (137 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/137.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">137.9/137.9 kB</span> <span class=" -Color -Color-Red">32.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-image&gt;=0.14.0 (from allensdk)
+  Downloading scikit_image-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.8 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/13.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.6/13.8 MB</span> <span class=" -Color -Color-Red">227.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">13.8/13.8 MB</span> <span class=" -Color -Color-Red">224.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">13.8/13.8 MB</span> <span class=" -Color -Color-Red">224.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">13.8/13.8 MB</span> <span class=" -Color -Color-Red">98.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-build&lt;1.0.0 (from allensdk)
+  Using cached scikit_build-0.17.6-py3-none-any.whl (84 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting statsmodels (from allensdk)
+  Downloading statsmodels-0.14.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.1 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/10.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━ <span class=" -Color -Color-Green">7.5/10.1 MB</span> <span class=" -Color -Color-Red">225.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">222.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.1/10.1 MB</span> <span class=" -Color -Color-Red">111.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting simpleitk&lt;3.0.0,&gt;=2.0.2 (from allensdk)
+  Downloading SimpleITK-2.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (52.7 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/52.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.2/52.7 MB</span> <span class=" -Color -Color-Red">162.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.3/52.7 MB</span> <span class=" -Color -Color-Red">112.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.0/52.7 MB</span> <span class=" -Color -Color-Red">122.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">21.2/52.7 MB</span> <span class=" -Color -Color-Red">208.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">27.3/52.7 MB</span> <span class=" -Color -Color-Red">190.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">33.7/52.7 MB</span> <span class=" -Color -Color-Red">174.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">40.0/52.7 MB</span> <span class=" -Color -Color-Red">179.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━ <span class=" -Color -Color-Green">41.9/52.7 MB</span> <span class=" -Color -Color-Red">181.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━ <span class=" -Color -Color-Green">41.9/52.7 MB</span> <span class=" -Color -Color-Red">181.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">45.9/52.7 MB</span> <span class=" -Color -Color-Red">79.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━ <span class=" -Color -Color-Green">50.3/52.7 MB</span> <span class=" -Color -Color-Red">76.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.4/52.7 MB</span> <span class=" -Color -Color-Red">147.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">96.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">52.7/52.7 MB</span> <span class=" -Color -Color-Red">29.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting argschema&lt;4.0.0,&gt;=3.0.1 (from allensdk)
+  Using cached argschema-3.0.4.tar.gz (25 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting glymur==0.8.19 (from allensdk)
+  Using cached Glymur-0.8.19.tar.gz (3.4 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting xarray (from allensdk)
+  Downloading xarray-2023.7.0-py3-none-any.whl (1.0 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.0/1.0 MB</span> <span class=" -Color -Color-Red">92.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pynwb (from allensdk)
+  Using cached pynwb-2.4.0-py3-none-any.whl (132 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tables (from allensdk)
+  Downloading tables-3.8.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.5 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">6.5/6.5 MB</span> <span class=" -Color -Color-Red">225.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.5/6.5 MB</span> <span class=" -Color -Color-Red">107.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting seaborn&lt;1.0.0 (from allensdk)
+  Using cached seaborn-0.12.2-py3-none-any.whl (293 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aiohttp==3.7.4 (from allensdk)
+  Downloading aiohttp-3.7.4.tar.gz (1.1 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.1/1.1 MB</span> <span class=" -Color -Color-Red">89.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Installing build dependencies ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25hRequirement already satisfied: nest-asyncio in /opt/conda/lib/python3.10/site-packages (from allensdk) (1.5.6)
+Requirement already satisfied: tqdm&gt;=4.27 in /opt/conda/lib/python3.10/site-packages (from allensdk) (4.65.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ndx-events&lt;=0.2.0 (from allensdk)
+  Using cached ndx_events-0.2.0-py2.py3-none-any.whl (13 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting boto3==1.17.21 (from allensdk)
+  Using cached boto3-1.17.21-py2.py3-none-any.whl (130 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting semver (from allensdk)
+  Using cached semver-3.0.1-py3-none-any.whl (17 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cachetools&lt;5.0.0,&gt;=4.2.1 (from allensdk)
+  Using cached cachetools-4.2.4-py3-none-any.whl (10 kB)
+Requirement already satisfied: sqlalchemy in /opt/conda/lib/python3.10/site-packages (from allensdk) (2.0.19)
+Requirement already satisfied: python-dateutil in /opt/conda/lib/python3.10/site-packages (from allensdk) (2.8.2)
+Requirement already satisfied: attrs&gt;=17.3.0 in /opt/conda/lib/python3.10/site-packages (from aiohttp==3.7.4-&gt;allensdk) (23.1.0)
+Collecting chardet&lt;4.0,&gt;=2.0 (from aiohttp==3.7.4-&gt;allensdk)
+  Using cached chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting multidict&lt;7.0,&gt;=4.5 (from aiohttp==3.7.4-&gt;allensdk)
+  Downloading multidict-6.0.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (114 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/114.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">114.5/114.5 kB</span> <span class=" -Color -Color-Red">28.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting async-timeout&lt;4.0,&gt;=3.0 (from aiohttp==3.7.4-&gt;allensdk)
+  Using cached async_timeout-3.0.1-py3-none-any.whl (8.2 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting yarl&lt;2.0,&gt;=1.0 (from aiohttp==3.7.4-&gt;allensdk)
+  Downloading yarl-1.9.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (268 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/268.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">268.8/268.8 kB</span> <span class=" -Color -Color-Red">46.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: typing-extensions&gt;=3.6.5 in /opt/conda/lib/python3.10/site-packages (from aiohttp==3.7.4-&gt;allensdk) (4.7.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting botocore&lt;1.21.0,&gt;=1.20.21 (from boto3==1.17.21-&gt;allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached botocore-1.20.112-py2.py3-none-any.whl (7.7 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting jmespath&lt;1.0.0,&gt;=0.7.1 (from boto3==1.17.21-&gt;allensdk)
+  Using cached jmespath-0.10.0-py2.py3-none-any.whl (24 kB)
+Collecting s3transfer&lt;0.4.0,&gt;=0.3.0 (from boto3==1.17.21-&gt;allensdk)
+  Using cached s3transfer-0.3.7-py2.py3-none-any.whl (73 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools in /opt/conda/lib/python3.10/site-packages (from glymur==0.8.19-&gt;allensdk) (68.0.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting marshmallow&lt;4.0,&gt;=3.0.0 (from argschema&lt;4.0.0,&gt;=3.0.1-&gt;allensdk)
+  Using cached marshmallow-3.20.1-py3-none-any.whl (49 kB)
+Requirement already satisfied: pyyaml in /opt/conda/lib/python3.10/site-packages (from argschema&lt;4.0.0,&gt;=3.0.1-&gt;allensdk) (6.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jsonschema&lt;5,&gt;=2.6.0 in /opt/conda/lib/python3.10/site-packages (from hdmf&lt;=3.4.7-&gt;allensdk) (4.18.4)
+Collecting numpy (from allensdk)
+  Downloading numpy-1.23.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/17.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.4/17.1 MB</span> <span class=" -Color -Color-Red">102.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.2/17.1 MB</span> <span class=" -Color -Color-Red">161.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">17.0/17.1 MB</span> <span class=" -Color -Color-Red">236.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">17.0/17.1 MB</span> <span class=" -Color -Color-Red">236.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">17.1/17.1 MB</span> <span class=" -Color -Color-Red">79.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas&gt;=1.1.5 (from allensdk)
+  Downloading pandas-1.5.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.1 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.7/12.1 MB</span> <span class=" -Color -Color-Red">231.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.1/12.1 MB</span> <span class=" -Color -Color-Red">227.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.1/12.1 MB</span> <span class=" -Color -Color-Red">227.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.1/12.1 MB</span> <span class=" -Color -Color-Red">104.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ruamel.yaml&lt;1,&gt;=0.16 in /opt/conda/lib/python3.10/site-packages (from hdmf&lt;=3.4.7-&gt;allensdk) (0.17.32)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/conda/lib/python3.10/site-packages (from jinja2&gt;=3.0.0-&gt;allensdk) (2.1.3)
+Collecting cycler&gt;=0.10 (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk)
+  Using cached cycler-0.11.0-py3-none-any.whl (6.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting kiwisolver&gt;=1.0.1 (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk)
+  Downloading kiwisolver-1.4.4-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/1.6 MB</span> <span class=" -Color -Color-Red">95.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pillow&gt;=6.2.0 (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk)
+  Downloading Pillow-10.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.4 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.4 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">3.4/3.4 MB</span> <span class=" -Color -Color-Red">238.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.4/3.4 MB</span> <span class=" -Color -Color-Red">96.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyparsing&gt;=2.2.1 (from matplotlib&lt;3.4.3,&gt;=1.4.3-&gt;allensdk)
+  Using cached pyparsing-3.1.1-py3-none-any.whl (103 kB)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/conda/lib/python3.10/site-packages (from pandas&gt;=1.1.5-&gt;allensdk) (2023.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: pip is looking at multiple versions of pynwb to determine which version is compatible with other requirements. This could take a while.
+Collecting pynwb (from allensdk)
+  Using cached pynwb-2.3.3-py3-none-any.whl (131 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pynwb-2.3.2-py3-none-any.whl (131 kB)
+  Using cached pynwb-2.3.1-py3-none-any.whl (131 kB)
+  Using cached pynwb-2.3.0-py3-none-any.whl (131 kB)
+  Using cached pynwb-2.2.0-py3-none-any.whl (126 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/conda/lib/python3.10/site-packages (from requests&lt;3.0.0-&gt;allensdk) (3.2.0)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/conda/lib/python3.10/site-packages (from requests&lt;3.0.0-&gt;allensdk) (3.4)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/conda/lib/python3.10/site-packages (from requests&lt;3.0.0-&gt;allensdk) (2.0.3)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/conda/lib/python3.10/site-packages (from requests&lt;3.0.0-&gt;allensdk) (2023.7.22)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting distro (from scikit-build&lt;1.0.0-&gt;allensdk)
+  Using cached distro-1.8.0-py3-none-any.whl (20 kB)
+Requirement already satisfied: packaging in /opt/conda/lib/python3.10/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (23.1)
+Requirement already satisfied: tomli in /opt/conda/lib/python3.10/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (2.0.1)
+Requirement already satisfied: wheel&gt;=0.32.0 in /opt/conda/lib/python3.10/site-packages (from scikit-build&lt;1.0.0-&gt;allensdk) (0.40.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting networkx&gt;=2.8 (from scikit-image&gt;=0.14.0-&gt;allensdk)
+  Using cached networkx-3.1-py3-none-any.whl (2.1 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting imageio&gt;=2.27 (from scikit-image&gt;=0.14.0-&gt;allensdk)
+  Using cached imageio-2.31.1-py3-none-any.whl (313 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tifffile&gt;=2022.8.12 (from scikit-image&gt;=0.14.0-&gt;allensdk)
+  Downloading tifffile-2023.8.12-py3-none-any.whl (220 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/221.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">221.0/221.0 kB</span> <span class=" -Color -Color-Red">44.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyWavelets&gt;=1.1.1 (from scikit-image&gt;=0.14.0-&gt;allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading PyWavelets-1.4.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.8 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">6.8/6.8 MB</span> <span class=" -Color -Color-Red">214.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.8/6.8 MB</span> <span class=" -Color -Color-Red">114.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lazy_loader&gt;=0.2 (from scikit-image&gt;=0.14.0-&gt;allensdk)
+  Using cached lazy_loader-0.3-py3-none-any.whl (9.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: greenlet!=0.4.17 in /opt/conda/lib/python3.10/site-packages (from sqlalchemy-&gt;allensdk) (2.0.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting patsy&gt;=0.5.2 (from statsmodels-&gt;allensdk)
+  Using cached patsy-0.5.3-py2.py3-none-any.whl (233 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cython&gt;=0.29.21 (from tables-&gt;allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading Cython-3.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.6/3.6 MB</span> <span class=" -Color -Color-Red">114.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numexpr&gt;=2.6.2 (from tables-&gt;allensdk)
+  Downloading numexpr-2.8.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (383 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/383.2 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">383.2/383.2 kB</span> <span class=" -Color -Color-Red">56.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting blosc2~=2.0.0 (from tables-&gt;allensdk)
+  Downloading blosc2-2.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.9 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/3.9 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">3.9/3.9 MB</span> <span class=" -Color -Color-Red">226.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">3.9/3.9 MB</span> <span class=" -Color -Color-Red">110.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting py-cpuinfo (from tables-&gt;allensdk)
+  Using cached py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting msgpack (from blosc2~=2.0.0-&gt;tables-&gt;allensdk)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading msgpack-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (316 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/316.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">316.8/316.8 kB</span> <span class=" -Color -Color-Red">53.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting urllib3&lt;3,&gt;=1.21.1 (from requests&lt;3.0.0-&gt;allensdk)
+  Using cached urllib3-1.26.16-py2.py3-none-any.whl (143 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /opt/conda/lib/python3.10/site-packages (from jsonschema&lt;5,&gt;=2.6.0-&gt;hdmf&lt;=3.4.7-&gt;allensdk) (2023.7.1)
+Requirement already satisfied: referencing&gt;=0.28.4 in /opt/conda/lib/python3.10/site-packages (from jsonschema&lt;5,&gt;=2.6.0-&gt;hdmf&lt;=3.4.7-&gt;allensdk) (0.30.0)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /opt/conda/lib/python3.10/site-packages (from jsonschema&lt;5,&gt;=2.6.0-&gt;hdmf&lt;=3.4.7-&gt;allensdk) (0.9.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ruamel.yaml.clib&gt;=0.2.7 in /opt/conda/lib/python3.10/site-packages (from ruamel.yaml&lt;1,&gt;=0.16-&gt;hdmf&lt;=3.4.7-&gt;allensdk) (0.2.7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Building wheels for collected packages: aiohttp, glymur, argschema, future, matplotlib
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for aiohttp (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for aiohttp: filename=aiohttp-3.7.4-cp310-cp310-linux_x86_64.whl size=655613 sha256=b1b2db5e99e77ff7a993f203d2f88d86ae947a9ec9b1022b824707e6fd2ae1c1
+  Stored in directory: /root/.cache/pip/wheels/a0/67/11/5beda0150ba642c0c5475964d4c5e00b8a2b50a19e3aaab8ac
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for glymur (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for glymur: filename=Glymur-0.8.19-py3-none-any.whl size=2721998 sha256=d62462e47ac4d846f1ca973d2a2692ad5ec6b16ac7ca7d21459d3d47ab56ee46
+  Stored in directory: /root/.cache/pip/wheels/f0/01/40/c32b31570ca7c988ebd7a2f374e5d24b2be4fca49e0c600efa
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for argschema (pyproject.toml) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for argschema: filename=argschema-3.0.4-py2.py3-none-any.whl size=19077 sha256=d8f71b0fca67fe0f17c80c3a7c965510c5b5d934a728238fd4a5b77bf3d5f678
+  Stored in directory: /root/.cache/pip/wheels/2a/1c/a0/2070782fe062fa827fa64ae376585cfdcfceb2165ab833b904
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for future (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for future: filename=future-0.18.3-py3-none-any.whl size=492022 sha256=2f55cab77447be8a125d822c09089685660d6f791f2e36d4b2d3e7fe32786e80
+  Stored in directory: /root/.cache/pip/wheels/5e/a9/47/f118e66afd12240e4662752cc22cefae5d97275623aa8ef57d
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for matplotlib (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> /
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+?25h  Created wheel for matplotlib: filename=matplotlib-3.4.2-cp310-cp310-linux_x86_64.whl size=7136505 sha256=fc97b1cfaf8109fe155a4cc1f1794af3d56310f86f4485534fb76d03715042f6
+  Stored in directory: /root/.cache/pip/wheels/d9/e8/73/f806fc40c211022378c2828e3cce1eac412344111ab1becd9d
+Successfully built aiohttp glymur argschema future matplotlib
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: simpleitk, py-cpuinfo, msgpack, chardet, urllib3, simplejson, semver, pyparsing, psycopg2-binary, pillow, numpy, networkx, multidict, marshmallow, lazy_loader, kiwisolver, jmespath, future, distro, cython, cycler, cachetools, blosc2, async-timeout, yarl, tifffile, scipy, scikit-build, PyWavelets, pynrrd, patsy, pandas, numexpr, matplotlib, imageio, h5py, glymur, botocore, argschema, xarray, tables, statsmodels, seaborn, scikit-image, s3transfer, requests-toolbelt, aiohttp, hdmf, boto3, pynwb, ndx-events, allensdk
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Attempting uninstall: urllib3
+    Found existing installation: urllib3 2.0.3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling urllib3-2.0.3:
+      Successfully uninstalled urllib3-2.0.3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed PyWavelets-1.4.1 aiohttp-3.7.4 allensdk-2.15.2 argschema-3.0.4 async-timeout-3.0.1 blosc2-2.0.0 boto3-1.17.21 botocore-1.20.112 cachetools-4.2.4 chardet-3.0.4 cycler-0.11.0 cython-3.0.0 distro-1.8.0 future-0.18.3 glymur-0.8.19 h5py-3.9.0 hdmf-3.4.7 imageio-2.31.1 jmespath-0.10.0 kiwisolver-1.4.4 lazy_loader-0.3 marshmallow-3.20.1 matplotlib-3.4.2 msgpack-1.0.5 multidict-6.0.4 ndx-events-0.2.0 networkx-3.1 numexpr-2.8.5 numpy-1.23.5 pandas-1.5.3 patsy-0.5.3 pillow-10.0.0 psycopg2-binary-2.9.7 py-cpuinfo-9.0.0 pynrrd-0.4.3 pynwb-2.2.0 pyparsing-3.1.1 requests-toolbelt-0.10.1 s3transfer-0.3.7 scikit-build-0.17.6 scikit-image-0.21.0 scipy-1.11.1 seaborn-0.12.2 semver-3.0.1 simpleitk-2.2.1 simplejson-3.19.1 statsmodels-0.14.0 tables-3.8.0 tifffile-2023.8.12 urllib3-1.26.16 xarray-2023.7.0 yarl-1.9.2
+<span class=" -Color -Color-Yellow">WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="install-allensdk-into-your-notebook-environment">
+<h2>Install AllenSDK into your notebook environment<a class="headerlink" href="#install-allensdk-into-your-notebook-environment" title="Permalink to this heading">#</a></h2>
+<p>You can install AllenSDK into your notebook environment by executing the cell below.</p>
+<p>If using Google Colab, click on the RESTART RUNTIME button that appears at the end of the output when this cell is complete,. Note that running this cell will produce a long list of outputs and some error messages. Clicking RESTART RUNTIME at the end will resolve these issues.
+You can minimize the cell after you are done to hide the output.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>---
+papermill:
+  duration: 7.723749
+  end_time: &#39;2023-07-31T19:16:41.995680&#39;
+  exception: false
+  start_time: &#39;2023-07-31T19:16:34.271931&#39;
+  status: completed
+pycharm:
+  name: &#39;#%%
+
+    &#39;
+---
+!pip install --upgrade pip
+!pip install allensdk
+</pre></div>
+</div>
+</section>
+<section id="import-required-packages">
+<h2>Import required packages<a class="headerlink" href="#import-required-packages" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">allensdk</span>
+<span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache</span> <span class="kn">import</span> <span class="n">VisualBehaviorOphysProjectCache</span>
+
+<span class="c1"># Confirming your allensdk version</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Your allensdk version is: </span><span class="si">{</span><span class="n">allensdk</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.8/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your allensdk version is: 2.15.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_parameters docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update this to a valid directory in your filesystem</span>
+<span class="c1"># Remember to choose a location that has plenty of free space available.</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;/root/capsule/data/visual-behavior-ophys/&quot;</span>
+<span class="n">DOWNLOAD_COMPLETE_DATASET</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+
+<span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorOphysProjectCache</span><span class="o">.</span><span class="n">from_s3_cache</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:413: MissingLocalManifestWarning: This cache directory appears to contain data files, but it has no record of what those files are. You might want to consider running
+
+VisualBehaviorOphysProjectCache.construct_local_manifest()
+
+to avoid needlessly downloading duplicates of data files that did not change between data releases. NOTE: running this method will require hashing every data file you have currently downloaded and could be very time consuming.
+
+To avoid this warning in the future, make sure that
+
+/root/capsule/data/visual-behavior-ophys/_downloaded_data.json
+
+is not deleted between instantiations of this cache
+  warnings.warn(msg, MissingLocalManifestWarning)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">VisualBehaviorOphysProjectCache</span><span class="o">.</span><span class="n">from_s3_cache</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">output_dir</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_cache_base.py:77,</span> in <span class="ni">ProjectCacheBase.from_s3_cache</span><span class="nt">(cls, cache_dir, bucket_name_override)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">def</span> <span class="nf">from_s3_cache</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>         <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>         <span class="n">bucket_name_override</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ProjectCacheBase&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;instantiates this object with a connection to an s3 bucket and/or</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="sd">     a local cache related to that bucket.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">77</span>     <span class="n">fetch_api</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cloud_api_class</span><span class="p">()</span><span class="o">.</span><span class="n">from_s3_cache</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="n">cache_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="n">bucket_name</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>             <span class="n">bucket_name_override</span> <span class="k">if</span> <span class="n">bucket_name_override</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>             <span class="k">else</span> <span class="bp">cls</span><span class="o">.</span><span class="n">BUCKET_NAME</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>         <span class="n">project_name</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">PROJECT_NAME</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">ui_class_name</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">fetch_api</span><span class="o">=</span><span class="n">fetch_api</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_apis/data_io/project_cloud_api_base.py:112,</span> in <span class="ni">ProjectCloudApiBase.from_s3_cache</span><span class="nt">(cls, cache_dir, bucket_name, project_name, ui_class_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;instantiates this object with a connection to an s3 bucket and/or</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="sd"> a local cache related to that bucket.</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="n">cache</span> <span class="o">=</span> <span class="n">S3CloudCache</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>                      <span class="n">bucket_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>                      <span class="n">project_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>                      <span class="n">ui_class_name</span><span class="o">=</span><span class="n">ui_class_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">112</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">cache</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_apis/data_io/project_cloud_api_base.py:39,</span> in <span class="ni">ProjectCloudApiBase.__init__</span><span class="nt">(self, cache, skip_version_check, local)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_version_check</span> <span class="o">=</span> <span class="n">skip_version_check</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="bp">self</span><span class="o">.</span><span class="n">_local</span> <span class="o">=</span> <span class="n">local</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">()</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/brain_observatory/behavior/behavior_project_cache/project_apis/data_io/project_cloud_api_base.py:52,</span> in <span class="ni">ProjectCloudApiBase.load_manifest</span><span class="nt">(self, manifest_name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="sd"> Load the specified manifest file into the CloudCache</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span><span class="sd">     (default: None)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">if</span> <span class="n">manifest_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">52</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">load_last_manifest</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="n">manifest_name</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:493,</span> in <span class="ni">CloudCacheBase.load_last_manifest</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="sd"> If this Cache was used previously, load the last manifest</span>
+<span class="g g-Whitespace">    </span><span class="mi">489</span><span class="sd"> used in this cache. If this cache has never been used, load</span>
+<span class="g g-Whitespace">    </span><span class="mi">490</span><span class="sd"> the latest manifest.</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manifest_last_used</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="bp">self</span><span class="o">.</span><span class="n">load_latest_manifest</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_manifest_last_used</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_file</span><span class="p">:</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:541,</span> in <span class="ni">CloudCacheBase.load_latest_manifest</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span>         <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="si">}</span><span class="s2">.load_manifest(&#39;</span><span class="si">{</span><span class="n">latest_downloaded</span><span class="si">}</span><span class="s2">&#39;)&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">OutdatedManifestWarning</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">541</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">)</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:608,</span> in <span class="ni">CloudCacheBase.load_manifest</span><span class="nt">(self, manifest_name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span> <span class="n">manifest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="p">,</span> <span class="n">manifest_name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">manifest_path</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">608</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_download_manifest</span><span class="p">(</span><span class="n">manifest_name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manifest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_manifest</span><span class="p">(</span><span class="n">manifest_name</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">612</span> <span class="c1"># Keep track of the newly loaded manifest</span>
+
+<span class="nn">File /opt/envs/allensdk/lib/python3.8/site-packages/allensdk/api/cloud_cache/cloud_cache.py:1091,</span> in <span class="ni">S3CloudCache._download_manifest</span><span class="nt">(self, manifest_name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1086</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_client</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_bucket_name</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1087</span>                                      <span class="n">Key</span><span class="o">=</span><span class="n">manifest_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1089</span> <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_dir</span><span class="p">,</span> <span class="n">manifest_name</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1091</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1092</span>     <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;Body&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iter_chunks</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">1093</span>         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: [Errno 30] Read-only file system: &#39;/root/capsule/data/visual-behavior-ophys/visual-behavior-ophys_project_manifest_v1.0.1.json&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instantiating the cache will have it to download 3 project metadata files:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">behavior_session_table.csv</span></code> (879 kB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_session_table.csv</span></code> (165.1 kB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ophys_experiment_table.csv</span></code> (335.6 kB)</p></li>
+</ol>
+<p>Each one contains a table of information related to its file name. If you’re using the AllenSDK, you won’t have to worry about how these files are formatted. Instead, you’ll load the relevant data using specific accessor method: <code class="docutils literal notranslate"><span class="pre">get_behavior_session_table()</span></code>, <code class="docutils literal notranslate"><span class="pre">get_ophys_session_table()</span></code>, and <code class="docutils literal notranslate"><span class="pre">get_ophys_experiment_table()</span></code>. These functions return a pandas DataFrame containing a row for each item and a column for each metric.</p>
+<p>If you are analyzing data without using the AllenSDK, you can load the data using your CSV file reader of choice. However, please be aware the columns in the original file do not necessarily match what’s returned by the AllenSDK, which may combine information from multiple files to produce the final DataFrame.</p>
+<section id="managing-versions-of-the-dataset">
+<h3>Managing versions of the dataset<a class="headerlink" href="#managing-versions-of-the-dataset" title="Permalink to this heading">#</a></h3>
+<p>Over time, updates may be made to the released dataset. These updates will result in new versions of the dataset being available in the S3 bucket. The versions of the dataset are managed through distinct data manifests stored on S3.</p>
+<section id="discovering-manifests">
+<h4>Discovering manifests<a class="headerlink" href="#discovering-manifests" title="Permalink to this heading">#</a></h4>
+<p>To see all of the manifest files available for this dataset online, run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">list_manifest_file_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see the most up-to-date available manifest, run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see the name of the most up-to-date manifest that you have already downloaded to your system run (note: this just means that the manifest file has been downloaded; it does not necessarily mean that any data has been downloaded)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">latest_downloaded_manifest_file</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can list all of the manifest files currently downloaded to your system with</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">list_all_downloaded_manifests</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-manifests-dataset-versions">
+<h4>Loading manifests/dataset versions<a class="headerlink" href="#loading-manifests-dataset-versions" title="Permalink to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> determines which version of the dataset to use by loading one of these manifests. By default, the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorProjectCache</span></code> loads either</p>
+<ul class="simple">
+<li><p>the most up-to-date available data manifest, if you are instaniating it on an empty <code class="docutils literal notranslate"><span class="pre">cache_dir</span></code></p></li>
+<li><p>the data manifest you were last using, if you are instantiating it on a pre-existing <code class="docutils literal notranslate"><span class="pre">cache_dir</span></code> (in this case, the <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> will emit a warning if a more up-to-data data manifest exists online letting you know that you can, if you choose, move to the more up-to-date data manifest)</p></li>
+</ul>
+<p>To see the manifest that you currently have loaded, run</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">current_manifest</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To load a particular data manifest by hand, run (note: because we are intentionally loading an out-of-date manifest, this will emit an error alerting us to the existence of the most up-to-date manifest). We then reload the latest manifest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allensdk.brain_observatory.behavior.behavior_project_cache.utils</span> <span class="kn">import</span> \
+    <span class="n">BehaviorCloudCacheVersionException</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="s1">&#39;visual-behavior-ophys_project_manifest_v0.1.0.json&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">BehaviorCloudCacheVersionException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">cache</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="n">cache</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cache</span><span class="o">.</span><span class="n">current_manifest</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the earlier warning informed us, we can see the difference between an two versions of the dataset by running</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">compare_manifests</span><span class="p">(</span><span class="s1">&#39;visual-behavior-ophys_project_manifest_v0.1.0.json&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;visual-behavior-ophys_project_manifest_v0.2.0.json&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the case we just examined, only the metadata files have changed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> is smart enough to know that, if a file has not changed between version <code class="docutils literal notranslate"><span class="pre">A</span></code> and version <code class="docutils literal notranslate"><span class="pre">B</span></code> of the dataset, and you have already downloaded the file while version <code class="docutils literal notranslate"><span class="pre">A</span></code> of the manifest was loaded, when you move to version <code class="docutils literal notranslate"><span class="pre">B</span></code>, it does not need to download the data again. It will simply construct a symlink where version <code class="docutils literal notranslate"><span class="pre">B</span></code> of the data should exist on your system, pointing to version <code class="docutils literal notranslate"><span class="pre">A</span></code> of the file.</p>
+<p>Because only metadata files changed between <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code> and <code class="docutils literal notranslate"><span class="pre">v0.2.0</span></code> of the dataset, we could move freely between the two versions without having to worry about downloading a bunch of new data files. This may not be the case for future dataset updates, so you should keep that in mind before moving from an older to a newer version out of hand.</p>
+</section>
+</section>
+<section id="using-the-allensdk-to-access-visual-behavior-ophys-metadata">
+<h3>Using the AllenSDK to access Visual Behavior Ophys metadata<a class="headerlink" href="#using-the-allensdk-to-access-visual-behavior-ophys-metadata" title="Permalink to this heading">#</a></h3>
+<p>Let’s take a closer look at what’s in the <code class="docutils literal notranslate"><span class="pre">behavior_session_table.csv</span></code> file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior sessions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_sessions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> DataFrame provides a high-level overview for behavior sessions in the Visual Behavior dataset. The index column (behavior_session_id) is a unique ID, which serves as a key for access behavior data for each session. To get additional information about this data table (and other tables) please visit <span class="xref myst">this example notebook</span>.</p>
+<p>Sharp eyed readers may be wondering why the number of behavior session (3572) in this table does not match up with the number of NWB files with behavior session data (3021). This is because the <code class="docutils literal notranslate"><span class="pre">behavior_session_table</span></code> includes entries for behavior sessions that also had optical physiology recordings.</p>
+<p>Let’s take a look at only the sessions that also included optical physiology data (i.e. the <code class="docutils literal notranslate"><span class="pre">ophys_session_table.csv</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_ophys_sessions</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_session_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior + ophys sessions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_ophys_sessions</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_ophys_sessions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we can see that 3572 - 551 is indeed 3021. The <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> contains information about behavior sessions with optical physiology recordings. Depending on the microscope (<code class="docutils literal notranslate"><span class="pre">equipment_name</span></code>) used, one or multiple ophys_experiments (i.e. imaging planes) may be collected during a behavior ophys session.</p>
+<p>In order to keep individual data file sizes reasonable, we are releasing data files organized around ophys_experiments (i.e. imaging planes) instead of at the ophys_session level. The <code class="docutils literal notranslate"><span class="pre">ophys_session_table</span></code> is thus useful for determining which <code class="docutils literal notranslate"><span class="pre">ophys_experiments</span></code> were collected together.</p>
+<p>Let’s finally take a look at the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table.csv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_ophys_experiments</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_ophys_experiment_table</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of behavior ophys experiments: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">behavior_ophys_experiments</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">behavior_ophys_experiments</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data">
+<h3>Using the AllenSDK to access Visual Behavior and Visual Behavior Ophys data<a class="headerlink" href="#using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data" title="Permalink to this heading">#</a></h3>
+<p>After looking through the metadata for the data release, let’s say you want to access information about a specific behavior session (behaviors_session_id=870987812)</p>
+<p>To get data for a specific behavior session in the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">behavior_session</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session</span><span class="p">(</span><span class="n">behavior_session_id</span><span class="o">=</span><span class="mi">870987812</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List methods of the session that can be used to get data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">behavior_session</span><span class="o">.</span><span class="n">list_data_attributes_and_methods</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try viewing one of the visual stimuli presented to the mouse during the behavior session we downloaded:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Listing the different stimuli templates</span>
+<span class="n">behavior_session</span><span class="o">.</span><span class="n">stimulus_templates</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizing a particular stimulus</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">behavior_session</span><span class="o">.</span><span class="n">stimulus_templates</span><span class="p">[</span><span class="s1">&#39;warped&#39;</span><span class="p">][</span><span class="s1">&#39;gratings_90.0&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">behavior_session</span></code> object has a lot of attributes and methods that can be used to access underlying data in the NWB file. Most of these will be touched on in other tutorials for <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">this data release</a>.</p>
+<p>Now let’s see how to get data for a particular ophys experiment (i.e. imaging plane):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ophys_experiment</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_ophys_experiment</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="o">=</span><span class="mi">951980471</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List methods of the ophys_experiment object that can be used to get data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">list_data_attributes_and_methods</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a quick look at the max projection image for the optical physiology experiment (i.e. imaging plane) we just obtained:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ophys_experiment</span><span class="o">.</span><span class="n">max_projection</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ophys_experiment</span></code> object has even more attributes and methods used to access NWB data! As with the <code class="docutils literal notranslate"><span class="pre">behavior_session</span></code> these methods will be touched on in other tutorials for <a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_behavior_optical_physiology.html">this data release</a>.</p>
+</section>
+</section>
+<section id="downloading-the-complete-dataset-with-allensdk">
+<h2>Downloading the complete dataset with AllenSDK<a class="headerlink" href="#downloading-the-complete-dataset-with-allensdk" title="Permalink to this heading">#</a></h2>
+<p>Analyzing one session or experiment at a time is nice, but in some cases you’ll want to be able to perform an analysis across the whole dataset. To fill your cache with all available data, you can use a for loop like the one below.</p>
+<p>Comment out the below code. Before running this code, please make sure that you have enough space available in your cache directory. You’ll need around 437.6 GB for the behavior session NWB files, and another 563.2  GB if you’re also downloading all ophys experiment NWB files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove rows from the behavior sessions table which don&#39;t correspond to a behavior session NWB file</span>
+<span class="n">filtered_behavior_sessions</span> <span class="o">=</span> <span class="n">behavior_sessions</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;file_id&quot;</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">DOWNLOAD_COMPLETE_DATASET</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">behavior_session_id</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">filtered_behavior_sessions</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_session</span><span class="p">(</span><span class="n">behavior_session_id</span><span class="o">=</span><span class="n">behavior_session_id</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">ophys_experiment_id</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">behavior_ophys_experiments</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">get_behavior_ophys_experiment</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="o">=</span><span class="n">ophys_experiment_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="direct-download-of-data-from-s3">
+<h2>Direct download of data from S3<a class="headerlink" href="#direct-download-of-data-from-s3" title="Permalink to this heading">#</a></h2>
+<p>If you do not wish to obtain data via the AllenSDK <code class="docutils literal notranslate"><span class="pre">VisualBehaviorOphysProjectCache</span></code> class, this section describes how to directly determine an S3 download link for your file or files of interest.</p>
+<p>The S3 bucket that stores all the data for this project’s release is:
+<a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/</a></p>
+<p>The structure of the S3 bucket looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>visual-behavior-ophys/
+│
+├── release_notes.txt
+│
+├── manifests/
+│   ├── visual-behavior-ophys_project_manifest_v{a.b.c}.json
+│   ├── visual-behavior-ophys_project_manifest_v{x.y.z}.json
+│   ...
+│
+├── project_metadata/
+│   ├── behavior_session_table.csv
+│   ├── ophys_experiment_table.csv
+│   └── ophys_session_table.csv
+│
+├── behavior_sessions/
+│   ├── behavior_session_{abc}.nwb
+│   ├── behavior_session_{xyz}.nwb
+│   ...
+│
+└── behavior_ophys_experiments/
+    ├── behavior_ophys_experiment_{abc}.nwb
+    ├── behavior_ophys_experiment_{xyz}.nwb
+    ...
+</pre></div>
+</div>
+<p>So if for example, you wanted to download a specific <code class="docutils literal notranslate"><span class="pre">behavior_ophys_experiment</span></code> you could first download the <code class="docutils literal notranslate"><span class="pre">ophys_experiment_table.csv</span></code> with:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/project_metadata/ophys_experiment_table.csv'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/project_metadata/ophys_experiment_table.csv</a> (try clicking me!)</p>
+<p>Then using the table, determine the <code class="docutils literal notranslate"><span class="pre">ophy_experiment_id</span></code> you are interested in. Let’s say we want <code class="docutils literal notranslate"><span class="pre">ophys_experiment_id</span> <span class="pre">=</span> <span class="pre">951980471</span></code>, then the appropriate download link would be:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_951980471.nwb'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_951980471.nwb</a></p>
+<p>Below are some simple sample functions that will help you efficiently determine download URL links:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+
+<span class="k">def</span> <span class="nf">get_manifest_url</span><span class="p">(</span><span class="n">manifest_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v</span><span class="si">{</span><span class="n">manifest_version</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_manifest_url</span><span class="p">(</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_metadata_url</span><span class="p">(</span><span class="n">metadata_table_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/project_metadata/</span><span class="si">{</span><span class="n">metadata_table_name</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_metadata_url</span><span class="p">(</span><span class="s2">&quot;behavior_session_table&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_behavior_session_url</span><span class="p">(</span><span class="n">behavior_session_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/behavior_sessions/behavior_session_</span><span class="si">{</span><span class="n">behavior_session_id</span><span class="si">}</span><span class="s2">.nwb&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_behavior_session_url</span><span class="p">(</span><span class="mi">870987812</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_behavior_ophys_experiment_url</span><span class="p">(</span><span class="n">ophys_experiment_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">hostname</span> <span class="o">=</span> <span class="s2">&quot;https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/&quot;</span>
+    <span class="n">object_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;visual-behavior-ophys/behavior_ophys_experiments/behavior_ophys_experiment_</span><span class="si">{</span><span class="n">ophys_experiment_id</span><span class="si">}</span><span class="s2">.nwb&quot;</span>
+    <span class="k">return</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">object_key</span><span class="p">)</span>
+
+<span class="c1"># Example:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_behavior_ophys_experiment_url</span><span class="p">(</span><span class="mi">951980471</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="downloading-previous-versions-of-released-data-from-s3">
+<h2>Downloading previous versions of released data from S3<a class="headerlink" href="#downloading-previous-versions-of-released-data-from-s3" title="Permalink to this heading">#</a></h2>
+<p>AllenSDK makes uses of versioned manifest (JSON) files that live in the S3 bucket to keep track of EVERY version of a file for this data release. If a bug/error in the released data is discovered or new data is added to existing NWB files and the updated NWB file is uploaded in the future, a new manifest will be created pointing to the newest version of the file. The existing manifest will continue pointing at the original version allowing reproducibility of analysis results. You can think of each manifest as a snapshot of the state of the S3 bucket when the manifest was created.</p>
+<p>This section describes how to download specific versions of a file in the S3 bucket.</p>
+<section id="listing-and-downloading-a-specific-manifest-version-for-the-data-release">
+<h3>Listing and downloading a specific manifest version for the data release<a class="headerlink" href="#listing-and-downloading-a-specific-manifest-version-for-the-data-release" title="Permalink to this heading">#</a></h3>
+<p>If you have an AWS account (even a free tier account works) you can log in and access the bucket directly:</p>
+<p><a href='https://s3.console.aws.amazon.com/s3/buckets/visual-behavior-ophys-data?prefix=visual-behavior-ophys/manifests/'>https://s3.console.aws.amazon.com/s3/buckets/visual-behavior-ophys-data?prefix=visual-behavior-ophys/manifests/</a></p>
+<p>If you don’t have or don’t want to use an AWS account you can click the following list to get an XML document:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/?list-type=2&prefix=visual-behavior-ophys/manifests/'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/?list-type=2&amp;prefix=visual-behavior-ophys/manifests/</a></p>
+<p>Which will look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">ListBucketResult</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Name</span><span class="o">&gt;</span><span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys</span><span class="o">-</span><span class="n">data</span><span class="o">&lt;/</span><span class="n">Name</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Prefix</span><span class="o">&gt;</span><span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys</span><span class="o">/</span><span class="n">manifests</span><span class="o">/&lt;/</span><span class="n">Prefix</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">KeyCount</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">KeyCount</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">MaxKeys</span><span class="o">&gt;</span><span class="mi">1000</span><span class="o">&lt;/</span><span class="n">MaxKeys</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">IsTruncated</span><span class="o">&gt;</span><span class="n">false</span><span class="o">&lt;/</span><span class="n">IsTruncated</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">Contents</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Key</span><span class="o">&gt;</span>
+    <span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys</span><span class="o">/</span><span class="n">manifests</span><span class="o">/</span><span class="n">visual</span><span class="o">-</span><span class="n">behavior</span><span class="o">-</span><span class="n">ophys_project_manifest_v0</span><span class="mf">.1.0</span><span class="o">.</span><span class="n">json</span>
+    <span class="o">&lt;/</span><span class="n">Key</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">LastModified</span><span class="o">&gt;</span><span class="mi">2021</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span><span class="n">T14</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mf">31.000</span><span class="n">Z</span><span class="o">&lt;/</span><span class="n">LastModified</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">ETag</span><span class="o">&gt;</span><span class="s2">&quot;8d10d6dd87234d4e0a1d400908c5013d&quot;</span><span class="o">&lt;/</span><span class="n">ETag</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">Size</span><span class="o">&gt;</span><span class="mi">1730897</span><span class="o">&lt;/</span><span class="n">Size</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">StorageClass</span><span class="o">&gt;</span><span class="n">STANDARD</span><span class="o">&lt;/</span><span class="n">StorageClass</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">Contents</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">ListBucketResult</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The XML document is the result of a query which lists all manifests that currently exist for the data release (denoted with <code class="docutils literal notranslate"><span class="pre">&lt;Key&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;/Key&gt;</span></code>). To obtain a specific manifest of interest you just take the <code class="docutils literal notranslate"><span class="pre">Key</span></code> for the manifest you’re interested in and append it to the name of the S3 bucket. For example:</p>
+<p><a href='https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v0.1.0.json'>https://visual-behavior-ophys-data.s3-us-west-2.amazonaws.com/visual-behavior-ophys/manifests/visual-behavior-ophys_project_manifest_v0.1.0.json</a></p>
+</section>
+<section id="using-a-versioned-manifest-to-download-a-specific-data-version">
+<h3>Using a versioned manifest to download a specific data version<a class="headerlink" href="#using-a-versioned-manifest-to-download-a-specific-data-version" title="Permalink to this heading">#</a></h3>
+<p>Once you’ve downloaded a manifest, you can use it to obtain download links for the specific version of data files that the manifest tracks. The example function below loads a downloaded manifest and generates download links for <em>all</em> the metadata and data files for the specified manifest:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># The location will differ based on where you downloaded the manifest.json!</span>
+<span class="n">my_manifest_location</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="n">cache</span><span class="o">.</span><span class="n">latest_manifest_file</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">generate_all_download_urls_from_manifest</span><span class="p">(</span><span class="n">manifest_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="n">manifest_path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+
+    <span class="n">download_links</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Get download links for specific version of metadata files</span>
+    <span class="k">for</span> <span class="n">metadata_file_entry</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;metadata_files&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">base_download_url</span> <span class="o">=</span> <span class="n">metadata_file_entry</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+        <span class="n">version_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;?versionId=</span><span class="si">{</span><span class="n">metadata_file_entry</span><span class="p">[</span><span class="s1">&#39;version_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">full_download_url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">base_download_url</span><span class="p">,</span> <span class="n">version_query</span><span class="p">)</span>
+        <span class="n">download_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_download_url</span><span class="p">)</span>
+
+    <span class="c1"># Get download links for specific version of data files</span>
+    <span class="k">for</span> <span class="n">data_file_entry</span> <span class="ow">in</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;data_files&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">base_download_url</span> <span class="o">=</span> <span class="n">data_file_entry</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+        <span class="n">version_query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;?versionId=</span><span class="si">{</span><span class="n">data_file_entry</span><span class="p">[</span><span class="s1">&#39;version_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">full_download_url</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">base_download_url</span><span class="p">,</span> <span class="n">version_query</span><span class="p">)</span>
+        <span class="n">download_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">full_download_url</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">download_links</span>
+
+<span class="c1"># Example:</span>
+<span class="c1"># print(&#39;\n&#39;.join(generate_all_download_urls_from_manifest(my_manifest_location)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "allensdk"
+        },
+        kernelOptions: {
+            name: "allensdk",
+            path: "./visual-behavior"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'allensdk'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VBO-Tutorial-Compare_trial_types.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Compare Trial Types</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VB-Neuropixels.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Visual Behavior Neuropixels</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-overview">Tutorial overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#options-for-data-access">Options for data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-retrieve-data">Using the AllenSDK to retrieve data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instal-allensdk-into-your-local-environment">Instal AllenSDK into your local environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-allensdk-into-your-notebook-environment">Install AllenSDK into your notebook environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-required-packages">Import required packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managing-versions-of-the-dataset">Managing versions of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discovering-manifests">Discovering manifests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-manifests-dataset-versions">Loading manifests/dataset versions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-ophys-metadata">Using the AllenSDK to access Visual Behavior Ophys metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-access-visual-behavior-and-visual-behavior-ophys-data">Using the AllenSDK to access Visual Behavior and Visual Behavior Ophys data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-complete-dataset-with-allensdk">Downloading the complete dataset with AllenSDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-download-of-data-from-s3">Direct download of data from S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-previous-versions-of-released-data-from-s3">Downloading previous versions of released data from S3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-and-downloading-a-specific-manifest-version-for-the-data-release">Listing and downloading a specific manifest version for the data release</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-versioned-manifest-to-download-a-specific-data-version">Using a versioned manifest to download a specific data version</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saskia de Vries, Marina Garrett, Corbett Bennet, Galen Lynch, Anna Lakunina, Casey Schneider-Mizell
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# see how many pulses the unit responds to
+num_pulses = np.unique(blue_laser_stim_table.num_pulses)[0]
+inter_pulse_interval = np.unique(blue_laser_stim_table.inter_pulse_interval)[0]
+pulse_offset = (duration + inter_pulse_interval)
+
+trials_best_site = emission_site == 1
+baseline_counts_best_site = baseline_counts[trials_best_site]
+
+other_pulse_pvals = []
+
+for ind_pulse in range(1,num_pulses):
+    this_pulse_time_range = [first_pulse_time_range[0]+ind_pulse*pulse_offset, first_pulse_time_range[1]+ind_pulse*pulse_offset]
+    this_pulse_counts = timestamps_to_spike_counts(laser_locked_spike_timestamps, this_pulse_time_range)
+    this_pulse_best_site_counts = this_pulse_counts[trials_best_site]
+    
+    # paired test
+    try:
+        statistic, pVal = stats.wilcoxon(this_pulse_best_site_counts.flatten(),
+                                baseline_counts_best_site.flatten(),
+                                alternative='greater')
+    except(ValueError):  # wilcoxon test doesn't like it when there's no difference between passed values
+        statistic = 0
+        pVal = 1
+        
+    other_pulse_pvals.append(pVal)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[15], line 4[0m
+[1;32m      2[0m num_pulses [38;5;241m=[39m np[38;5;241m.[39munique(blue_laser_stim_table[38;5;241m.[39mnum_pulses)[[38;5;241m0[39m]
+[1;32m      3[0m inter_pulse_interval [38;5;241m=[39m np[38;5;241m.[39munique(blue_laser_stim_table[38;5;241m.[39minter_pulse_interval)[[38;5;241m0[39m]
+[0;32m----> 4[0m pulse_offset [38;5;241m=[39m ([43mduration[49m [38;5;241m+[39m inter_pulse_interval)
+[1;32m      6[0m trials_best_site [38;5;241m=[39m emission_site [38;5;241m==[39m [38;5;241m1[39m
+[1;32m      7[0m baseline_counts_best_site [38;5;241m=[39m baseline_counts[trials_best_site]
+
+[0;31mNameError[0m: name 'duration' is not defined
+
